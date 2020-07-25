@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Dish;
+use App\Special;
 use App\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,12 +18,12 @@ class FrontendController extends Controller
     public function index()
     {
         $categories = Category::all();
-
-        $dishes_of_Desserts = DB::table('dishes')
-                            ->join('categories', 'dishes.category_id', '=', 'categories.id')
-                            ->where('categories.name', '=', 'Desserts')
-                            ->select('categories.name', 'dishes.*')
-                            ->get();
+        $specials = Special::find();
+        //$dishes_of_Desserts = DB::table('dishes')
+         //                   ->join('categories', 'dishes.category_id', '=', 'categories.id')
+        //                    ->where('categories.name', '=', 'Desserts')
+        //                    ->select('categories.name', 'dishes.*')
+        //                    ->get();
 
        // $dishes = Dish::all();
         //$dishes = DB::table('dishes')
@@ -30,7 +31,7 @@ class FrontendController extends Controller
                     //->select('categories.name', 'dishes.*')
                     //->get();
 
-        return view('index', array("categories" => $categories, "dishes_of_Desserts" => $dishes_of_Desserts));
+        return view('index', array("categories" => $categories, "specials" => $specials));
     }
 
     /**

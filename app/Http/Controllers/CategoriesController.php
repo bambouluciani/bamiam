@@ -39,7 +39,7 @@ class CategoriesController extends Controller
     {
         Category::create($request->all());
         return redirect()->Route('category_index')->with(array(
-            "success" => "Votre categorie a été créée avec succès",
+            "success" => "Votre catégorie a été créée avec succès",
         ));
     }
 

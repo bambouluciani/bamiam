@@ -24,9 +24,10 @@
                     <li class="list-group-item"><a href="{{Route('dish_create')}}">Nouveau plat</a></li>
                     <li class="list-group-item"><a href="{{Route('dish_index')}}">Liste des plats</a></li>
                     <br>
-                    <li class="list-group-item"><a href="">Plats du jour</a></li>
+                    <li class="list-group-item"><a href="{{Route('special_create')}}">Nouveau plat du jour</a></li>
+                    <li class="list-group-item"><a href="{{Route('special_index')}}">Plats du jour</a></li>
                     <br>
-                <li class="list-group-item"><a href="{{Route('contact_index')}}">Liste des contacts</a></li>
+                    <li class="list-group-item"><a href="{{Route('contact_index')}}">Liste des contacts</a></li>
                 </ul>
             </div>
 

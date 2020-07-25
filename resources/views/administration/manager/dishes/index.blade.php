@@ -14,7 +14,6 @@
     @php
         header("Refresh: 5");
     @endphp
-   
 @endif
 
 
@@ -22,7 +21,7 @@
     <form method="post" action="{{ Route('dish_index') }}">
         @csrf
         <select class="form-control" name="category_id" onchange="this.form.submit()">
-        <option value="">Filtrer par categories</option>
+        <option value="">Filtrer par catégories</option>
         @foreach ($categories as $category)
             <option value={{ $category->id }}> {{ $category->name }} </option>
         @endforeach
@@ -53,16 +52,16 @@
                 <td>{{$dish->description}}</td>
                 <td>{{$dish->price}}</td>
                 <td>{{$dish->genre}}</td>
-                <td>
-                    <a href="{{Route('dish_show', $dish)}}" class="btn btn-primary">Voir</a>
-                <a href="{{Route('dish_edit', $dish)}}" class="btn btn-secondary">Modifier</a>
-                <form method="post" action="{{Route('dish_delete', $dish)}}">
-                    @csrf
-                    @method('delete')
-                    <button class="btn btn-danger" onclick="return confirm('Êtes-vous sûre de vouloir supprimer ce plat ?')">Supprimer</button>
-                </form>
+                <td class="d-flex justify-content-center">
+                    <a href="{{Route('dish_show', $dish)}}" class="btn btn-primary mr-2">Voir</a>
+                    <a href="{{Route('dish_edit', $dish)}}" class="btn btn-secondary mr-2">Modifier</a>
+                    <form method="post" action="{{Route('dish_delete', $dish)}}">
+                        @csrf
+                        @method('delete')
+                        <button class="btn btn-danger" onclick="return confirm('Êtes-vous sûre de vouloir supprimer ce plat ?')">Supprimer</button>
+                    </form>
                 </td>
-                </td>
+                
             </tr>
         @endforeach
     </tbody>

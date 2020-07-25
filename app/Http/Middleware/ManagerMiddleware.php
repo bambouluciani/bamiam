@@ -20,6 +20,7 @@ class ManagerMiddleware
         {
         return $next($request);
         } else{
+            session()->flush();
             return redirect()->Route('login');
         }
     }

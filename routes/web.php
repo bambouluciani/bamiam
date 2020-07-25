@@ -44,6 +44,12 @@ Route::prefix('administration/manager')->group(function(){
     Route::get('/contacts/show/{contact}', "ContactsController@show")->name("contact_show");
     Route::delete('/contacts/delete/{contact}', "ContactsController@destroy")->name("contact_delete");
     
+    Route::get('/specials/create', 'SpecialsController@create')->name('special_create');
+    Route::post('/specials/store', 'SpecialsController@store')->name('special_store');
+    Route::get('/specials/index', 'SpecialsController@index')->name('special_index');
+    Route::get('/specials/edit/{special}', 'SpecialsController@edit')->name('special_edit');
+    Route::put('/specials/update/{special}', 'SpecialsController@update')->name('special_update');
+    Route::delete('/specials/delete/{special}', 'SpecialsController@destroy')->name('special_delete');
     
 });
 

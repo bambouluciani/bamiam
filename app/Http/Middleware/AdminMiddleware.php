@@ -20,6 +20,7 @@ class AdminMiddleware
         {
         return $next($request);
         } else{
+            session()->flush();
             return redirect()->Route('login');
         }
     }

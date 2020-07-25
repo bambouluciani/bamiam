@@ -67,8 +67,7 @@
                             <h1>Bamiam</h1>
                             <p>Reservations: 0033 ...</p>
                             @if (session('success'))
-
-                                <h5 class="text-success display-5">{{ session('success')}}</h5> 
+                            <h5 class="text-success display-5">{{ session('success')}}</h5> 
                                 @php
                                     header('refresh:5'); 
                                 @endphp
@@ -85,28 +84,18 @@
             <div class="section-title">
                 <h2>Plats du jour</h2>
             </div>
+            @foreach ($specials as $special)
             <div class="row">
                 <div class="col-xs-12 col-sm-4">
                     <div class="features-item">
-                        <h3>Lorem ipsum dolor</h3>
-                        <img src="img/specials/1.jpg" class="img-responsive" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
+                    <h3>{{ $special->name }}</h3>
+                    <img src="{{ $special->image }}" class="img-responsive" alt="{{ $special->name }}"/>
+                    <p>{{ $special->description }}</p>
+                    <p>{{ $special->price }} €</p>
+                    <p>{{ $special->genre }}</p>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="features-item">
-                        <h3>Consectetur adipiscing</h3>
-                        <img src="img/specials/2.jpg" class="img-responsive" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-4">
-                    <div class="features-item">
-                        <h3>Duis sed dapibus</h3>
-                        <img src="img/specials/3.jpg" class="img-responsive" alt="">
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis sed dapibus leo nec ornare diam sed commodo.</p>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </div>
@@ -128,33 +117,6 @@
         </div>
     </div>
     <!-- Restaurant Menu Section -->
-    
-    {{--<div id="restaurant-menu">
-        <div class="container">
-            <div class="section-title text-center">
-                <h2>Menu</h2>
-            </div>
-            @foreach ($categories as $category)
-            <div class="row">
-                <div class="col-xs-12 col-sm-6">
-                    <div class="menu-section">
-                        <h2 class="menu-section-title">{{ $category->name }}</h2>
-                        @foreach ($category->dishes as $dish)       
-                        <div class="menu-item">
-                            <div class="menu-item-name">{{$dish->name}}</div>
-                            <div class="menu-item-price">{{$dish->price}} €</div>
-                            <div class="menu-item-description">{{$dish->description}}</div>
-                            <div class="menu-item-genre">{{$dish->genre}}</div>
-                            <hr>
-                        </div> 
-
-                        @endforeach
-                    </div>
-                </div> 
-            @endforeach   
-            </div>
-        </div>
-    </div>--}}
 
     <div id="restaurant-menu">
         <div class="container">
@@ -281,6 +243,13 @@
         <div class="container text-center">
             <div class="col-md-6">
                 <p>www.bamiam.com</p>
+                {{--
+                    ne détecte pas le user identifié comme un objet
+                    @if (Auth::user()->roles->pluck('name')->contains('admin'))
+                    <a href="{{Route('admin_index')}}">Login partenaires</a>
+                @elseif(Auth::user()->roles->pluck('name')->contains('manager'))
+                    <a href="{{Route('manager_index')}}">Login partenaires</a>
+                @endif --}}
                 <a href="{{Route('login')}}">Login partenaires</a>
             </div>
             <div class="col-md-6">
@@ -294,12 +263,18 @@
             </div>
         </div>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="js_template/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="js_template/bootstrap.js"></script>
     <script type="text/javascript" src="js_template/SmoothScroll.js"></script>
     {{--<script type="text/javascript" src="js_template/jqBootstrapValidation.js"></script>--}}
     {{--<script type="text/javascript" src="js_template/contact_me.js"></script>--}}
     <script type="text/javascript" src="js_template/main.js"></script>
+
+    <script>
+        
+        
+    </script>
 </body>
 
 </html>

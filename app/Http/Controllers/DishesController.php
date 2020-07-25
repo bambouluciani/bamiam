@@ -40,7 +40,7 @@ class DishesController extends Controller
         if($categories->count() == 0)
         {
             return redirect()->back()->with( array(
-                "message" => "<h3 style='color:red';>Veuillez creer au moins une categorie avant de creer des plats</h3>"
+                "message" => "<h3 style='color:red';>Veuillez créer au moins une categorie avant de créer des plats</h3>"
             ));
         } else{
             return view('administration.manager.dishes.create', array('categories' => $categories));

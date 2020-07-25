@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Special extends Model
 {
-    protected $fillable = array("nom", "image", "description", "price", "genre");
+    protected $fillable = array("name", "image", "description", "price", "genre");
+
+    public function getImageAttribute($image)
+    {
+        return asset($image);
+    }
 }

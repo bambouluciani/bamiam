@@ -15,7 +15,7 @@
     <div class="content">
         <p>Email: {{ $contact->email }}</p>
         <hr>
-        <p>Message: {{ $contact->message }}€</p>
+        <p>Message: {{ $contact->message }}</p>
         <hr>
             <form method="post" action="{{Route('contact_delete', $contact)}}">
                 @csrf

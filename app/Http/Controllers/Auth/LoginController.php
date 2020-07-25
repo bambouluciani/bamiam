@@ -48,6 +48,9 @@ class LoginController extends Controller
         else if(Auth::user()->roles->pluck('name')->contains('manager'))
         {
             return '/administration/manager/index';        
-        } 
+        } else {
+            session()->flush(); 
+            return '/login';
+        }
     }
 }

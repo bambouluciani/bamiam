@@ -12,7 +12,7 @@ class RolesTableSeeder extends Seeder
      */
     public function run()
     {
-       Role::truncate();
+       Role::truncate(); // Pour vider la table role
        
        Role::create(array(
            "name" => "admin"

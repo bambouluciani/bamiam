@@ -46,7 +46,7 @@
                 <form method="post" action="{{Route('category_delete', $category)}}">
                     @csrf
                     @method('delete')
-                    <button class="btn btn-danger" onclick="return confirm('Êtes-vous sûre de vouloir supprimer cette catégorie ?')">Supprimer</button>
+                    <button class="btn btn-danger" onclick="return confirm('Des plats sont reliés à cette catégorie. Êtes-vous sûre de vouloir supprimer cette catégorie ?')">Supprimer</button>
                 </form>
                 </td>
                 </td>

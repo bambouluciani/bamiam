@@ -18,6 +18,8 @@ class CreateRoleUserTable extends Migration
             $table->bigInteger('role_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
             $table->timestamps();
+
+            
         });
     }
 
