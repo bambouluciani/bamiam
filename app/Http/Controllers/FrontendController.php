@@ -18,7 +18,7 @@ class FrontendController extends Controller
     public function index()
     {
         $categories = Category::all();
-        $specials = Special::find();
+        $specials = Special::all();
         //$dishes_of_Desserts = DB::table('dishes')
          //                   ->join('categories', 'dishes.category_id', '=', 'categories.id')
         //                    ->where('categories.name', '=', 'Desserts')
